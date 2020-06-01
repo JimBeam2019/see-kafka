@@ -1,0 +1,12 @@
+version: '3'
+
+services: 
+    seekafka:
+        image: seekafka:latest
+        working_dir: /usr/src/seekafka
+        command: >
+            bash -c "
+            g++ -o app main.cpp -std=c++0x -I/usr/include/librdkafka -lpthread
+            && ./app"
+        volumes: 
+            - .:/usr/src/seekafka
